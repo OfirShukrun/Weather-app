@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <title>Weather App</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/css/weather-icons.min.css">
+    <link rel="stylesheet" href="/font/weathericons-regular-webfont.eot">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <!-- ANGULARJS -->
+    <base href="/">
+    <script src="/AngularJS/angular.min.js"></script>
+    <script src="/AngularJS/angular-route.min.js"></script>
+    <script src="/AngularJS/angular-animate.min.js"></script>
+    <!-- JAVASCRIPT -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="app.js"></script>
+    <script src="/JavaScript/rain.js"></script>
+    <!-- BOOTSTRAP-->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+</head>
+
+<body ng-controller="myController">
+    <div id="instructions">
+        <div class="text-center">
+            <h1 id="header" class="word">Weather App &#9730</h1>
+            <h3 id="header-2">Get the current weather of any location on earth!</h3>
+            <p>Enter at least a Country</p>
+            <div class="container">
+                <input class="form-control" ng-model="location" placeholder="Search for location" type="search" id="Location" maxlength="28">
+            </div>
+            <button class="button" ng-click="getWeather()" type="submit" name="Show Weather" id="Show"><span>Get Weather!</span></button>
+            <article id="weather" class="col-md-12">
+                <h1 id="googleLocation">&#9656;{{location}}</h1>
+                <h3>{{error}}</h3>
+                <h1 class="ml5">
+                    <span class="text-wrapper">
+                        <span class="letters letters-right">
+                            <h2 id="weather-d" ng-show="weather">
+                                    {{weather}}<i class="wi wi-celsius " ng-show="weather">
+                                    (</i>{{F}}<i class="wi wi-fahrenheit" ng-show="weather">)</i>;
+                                    <br>{{description}}
+                                    <i class="wi wi-humidity" ng-show="weather"></i></h2>
+                        </span>
+                    </span>
+                </h1>
+                <div class="ml6">
+                    <span class="text-wrapper">      
+                        <span class="letters letters-right">
+                                <weatherIcons ng-include="'weatherIcons.html'"></weatherIcons>
+                        </span>
+                    </span>
+                </div>
+            </article>
+        </div>
+    </div>
+    <canvas id="canvas"></canvas>
+</body>
+
+</html>
