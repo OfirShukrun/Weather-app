@@ -112,7 +112,7 @@ myApp.controller('myController', ['$scope', '$http', '$timeout', ($scope, $http,
                                 offset: '-=600'
                             })
                     })
-                    .catch(() => $scope.error = "Can’t access " + url + " response."
+                    .catch(() => $scope.error = "Can’t access " + url + " response.")
                 $scope.error = "";
                 $scope.snow = "";
                 $scope.rain = "";
