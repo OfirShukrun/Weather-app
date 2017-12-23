@@ -1,4 +1,4 @@
-var myApp = angular.module("myApp", ['ngAnimate']);
+var myApp = angular.module("myApp", []);
 
 
 myApp.controller('myController', ['$scope', '$http', '$timeout', ($scope, $http, $timeout) => {
